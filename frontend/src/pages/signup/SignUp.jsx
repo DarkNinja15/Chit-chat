@@ -21,9 +21,7 @@ const SignUp = () => {
 
   const getGender = (gender)=>{
     console.log(inputs);
-    setInputs({...inputs,gender})
-    // console.log(setInputs.gender);
-    
+    setInputs({...inputs,gender});   
   }
 
   return (
@@ -62,7 +60,9 @@ const SignUp = () => {
         <GenderCheckBox onCheckboxChange={getGender} selectedGender={inputs.gender}/>
         <Link to="/login" className='hover:text-blue-50 mt-2 inline-block text-sm hover:underline'>Already have and account</Link>
         <div>
-        <button className="btn btn-primary bg-gray-200 mt-2 hover:bg-white">Create Account</button>
+        <button className="btn btn-primary bg-gray-200 mt-2 hover:bg-white" disabled={loading}>
+          {loading? <span className='loading loading-spinner'></span>:"Create Account"}
+        </button>
         </div>
       </form>
     </div>
