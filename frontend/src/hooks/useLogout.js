@@ -18,7 +18,7 @@ const useLogout=()=>{
             localStorage.removeItem("user");
             setAuthUser(null);
         } catch (error) {
-            
+            toast.error(error.message);
         } finally{
             setLoading(false);
         }
