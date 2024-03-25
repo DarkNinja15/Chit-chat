@@ -1,11 +1,11 @@
 import express from "express";
-const app=express();
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/auth.route.js";
 import { connectDatabase } from "./db/connectToMongoDB.js";
 import messageRouter from "./routes/message.route.js";
 import userRouter from "./routes/user.route.js";
+import { app,server } from "./socket/socket.js";
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
@@ -21,7 +21,7 @@ app.get('/',(req,res)=>{
 });
 
 
-app.listen(PORT,()=>{
+server.listen(PORT,()=>{
     connectDatabase();
     console.log(`Server listening on port ${PORT}`);
 })
