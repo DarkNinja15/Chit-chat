@@ -15,7 +15,8 @@ export const login = async (req, res) => {
             return res.status(200).json({
                 _id: user._id,
                 fullName: user.fullName,
-                gender: user.gender
+                gender: user.gender,
+                profilePic: user.profilePic,
             });
         }
         return res.status(400).json({error:"Username or password is incorrect"});
